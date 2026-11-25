@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class AnimatedButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
 {
-    public enum Act { None, Go, Back, Root, Replace, Quit }
+    public enum Act { None, Go, Back, Root, Replace, Quit, LoadScene }
     public Act action = Act.None;
     public string target;
 

@@ -40,6 +40,7 @@ public class ScreenBase : MonoBehaviour
 
         if (isOverlay && popPanel)
         {
+            if (UiSound.Instance != null) UiSound.Instance.Play(UiSound.Cue.Open);
             rt.anchoredPosition = Vector2.zero;
             popPanel.localScale = Vector3.one * 0.8f;
             this.FadeTo(cg, 1f, InDur, Easing.OutQuad);
@@ -63,7 +64,10 @@ public class ScreenBase : MonoBehaviour
         this.FadeTo(cg, 0f, OutDur, Easing.InQuad);
 
         if (isOverlay && popPanel)
+        {
+            if (UiSound.Instance != null) UiSound.Instance.Play(UiSound.Cue.Close);
             this.ScaleTo(popPanel, 0.9f, OutDur, Easing.InQuad, () => gameObject.SetActive(false));
+        }
         else
             this.MoveTo(rt, new Vector2(-dir * rt.rect.width * Slide, 0), OutDur, Easing.InCubic,
                         () => gameObject.SetActive(false));
