@@ -15,6 +15,8 @@ public class ResultsScreen : ScreenBase
 
     protected override void OnShown()
     {
+        if (UiSound.Instance != null) UiSound.Instance.Play(UiSound.Cue.Success);
+
         for (int i = 0; i < stars.Length; i++)
         {
             stars[i].localScale = Vector3.zero;
